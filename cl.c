@@ -22,6 +22,10 @@ int main(){
   platformInfo.platform_id = calloc( platformInfo.count, sizeof(cl_platform_id));
 
   error_cl = clGetPlatformIDs( 1, & platformInfo.platform_id, & platformInfo.count);
+  if ( CL_SUCCESS != error_cl ){
+    print("failed to get platforms\n");
+    return 0;
+  }
   printf ("platformInfo.count: %du \n", platformInfo.count);
 
   return 0;
