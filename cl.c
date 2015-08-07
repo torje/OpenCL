@@ -1,5 +1,6 @@
 #include <CL/opencl.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
   cl_device_id device_id;
