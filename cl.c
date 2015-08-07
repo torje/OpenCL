@@ -16,11 +16,13 @@ int main(){
 
   int error_cl;
   
-  struct { cl_uint entries; cl_platform_id *platform_id; cl_uint count ; } platformInfo= { 1, NULL, 0 };
-  platformInfo.platform_id = calloc( platformInfo.count,sizeof(cl_platform_id));
+  struct { cl_uint entries; cl_platform_id platform_id; cl_uint count ; } platformInfo= { 1, 0, 0 };
+  
 
-  error_cl = clGetPlatformIDs( platformInfo.entries,  platformInfo.platform_id, & platformInfo.count);
-  printf ("plaotformInfo.count: %du \n", platformInfo.count);
+  platformInfo.platform_id = calloc( platformInfo.count, sizeof(cl_platform_id));
+
+  error_cl = clGetPlatformIDs( 1, & platformInfo.platform_id, & platformInfo.count);
+  printf ("platformInfo.count: %du \n", platformInfo.count);
 
   return 0;
 }
