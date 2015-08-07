@@ -19,8 +19,7 @@ int main(){
   struct { cl_uint entries; cl_platform_id platform_id; cl_uint count ; } platformInfo= { 1, 0, 0 };
   
 
-  platformInfo.platform_id = calloc( platformInfo.count, sizeof(cl_platform_id));
-
+  
   error_cl = clGetPlatformIDs( 1, & platformInfo.platform_id, & platformInfo.count);
   if ( CL_SUCCESS != error_cl ){
     printf("failed to get platforms\n");
